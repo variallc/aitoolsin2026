@@ -4,14 +4,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI in Your Pocket</title>  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-</head><body><div class="card">  <h1>Stop Wasting Hours on School Work — Use AI Instead</h1>  <p class="subtitle">
+</head><body><!-- BACKGROUND SVG LOGOS --><div class="bg-svg">  <!-- OpenAI-like swirl (simplified SVG) -->  <svg class="svg1" viewBox="0 0 100 100">
+    <path d="M50 10 C70 10, 90 30, 90 50 C90 70, 70 90, 50 90 C30 90, 10 70, 10 50 C10 30, 30 10, 50 10 Z" fill="#7b5cff"/>
+  </svg>  <!-- Gemini sparkle -->  <svg class="svg2" viewBox="0 0 100 100">
+    <polygon points="50,5 60,40 95,50 60,60 50,95 40,60 5,50 40,40" fill="#00e5ff"/>
+  </svg>  <!-- Claude soft blob -->  <svg class="svg3" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="50" rx="40" ry="30" fill="#ff9800" />
+  </svg></div><div class="card">  <h1>Stop Wasting Hours on School Work — Use AI Instead</h1>  <p class="subtitle">
     Discover 7 powerful AI tools that help you work faster and smarter.
-  </p>  <div class="benefits">
+  </p>  <!-- VIDEO SECTION -->  <div class="video-section">
+    <iframe 
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+      title="AI Demo Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>  <div class="benefits">
     <div>✔ Finish assignments faster</div>
     <div>✔ Understand topics easily</div>
     <div>✔ Create slides instantly</div>
     <div>✔ Save 5+ hours weekly</div>
-  </div>  <!-- IMPORTANT: id must match Formspree config -->  <form id="my-form" action="https://formspree.io/f/mojplovw" method="POST">
+  </div>  <form id="my-form" action="https://formspree.io/f/mojplovw" method="POST">
     <input type="text" name="name" placeholder="Your name (optional)">
     <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Get Free Guide</button>
@@ -19,7 +33,7 @@
     <p>✅ Success! Click below to access your free guide:</p>
     <p class="email-note">Check your email too — we’ve sent you more AI tips 🚀</p>
     <a href="https://selar.com/013v55534o" target="_blank">Download Now</a>
-  </div></div><!-- Formspree Official AJAX Script --><script>
+  </div></div><script>
   window.formspree =
     window.formspree ||
     function () {
@@ -30,15 +44,13 @@
     formElement: "#my-form",
     formId: "mojplovw",
   });
-</script><script src="https://unpkg.com/@formspree/ajax@1" defer></script><!-- Custom Success Handling --><script>
+</script><script src="https://unpkg.com/@formspree/ajax@1" defer></script><script>
   const form = document.getElementById('my-form');
   const box = document.getElementById('downloadBox');
 
-  form.addEventListener('submit', function () {
-    setTimeout(() => {
-      form.style.display = "none";
-      box.style.display = "block";
-    }, 1500); // wait for Formspree to process
+  form.addEventListener("formspree:success", function() {
+    form.style.display = "none";
+    box.style.display = "block";
   });
 </script></body>
-</html>
+  </html>
