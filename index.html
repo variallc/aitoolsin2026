@@ -2,13 +2,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI in Your Pocket</title>  <!-- Google Sans-like font -->  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Product Sans', Arial, sans-serif;
-    }
+  <title>AI in Your Pocket</title>  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Product Sans', Arial, sans-serif; }
 
     body {
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -18,11 +13,10 @@
       justify-content: center;
       min-height: 100vh;
       padding: 20px;
-      overflow: hidden;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255,255,255,0.06);
       backdrop-filter: blur(20px);
       border-radius: 22px;
       padding: 40px 25px;
@@ -33,34 +27,106 @@
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .badge {
-      background: rgba(103, 58, 183, 0.25);
-      color: #c7b6ff;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 12px;
+    h1 { font-size: 30px; margin-bottom: 15px; }
+    .subtitle { color: #d1d1d1; margin-bottom: 25px; }
+
+    .benefits div {
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideIn 0.5s forwards;
+    }
+
+    .benefits div:nth-child(1){animation-delay:0.3s}
+    .benefits div:nth-child(2){animation-delay:0.5s}
+    .benefits div:nth-child(3){animation-delay:0.7s}
+    .benefits div:nth-child(4){animation-delay:0.9s}
+
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #7b5cff, #5a3fff);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .download-box {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(0,255,150,0.1);
+      border: 1px solid rgba(0,255,150,0.3);
+      text-align: center;
+      animation: fadeUp 0.6s ease;
+    }
+
+    .download-box a {
       display: inline-block;
-      margin-bottom: 15px;
-      animation: pulse 2s infinite;
+      margin-top: 10px;
+      padding: 12px 18px;
+      background: #00c853;
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
+  </style></head><body><div class="card">  <h1>Stop Wasting Hours on School Work — Use AI Instead</h1>  <p class="subtitle">
+    Discover 7 powerful AI tools that help you work faster and smarter.
+  </p>  <div class="benefits">
+    <div>✔ Finish assignments faster</div>
+    <div>✔ Understand topics easily</div>
+    <div>✔ Create slides instantly</div>
+    <div>✔ Save 5+ hours weekly</div>
+  </div>  <form id="leadForm">
+    <input type="text" name="name" placeholder="Your name (optional)">
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Get Free Guide</button>
+  </form>  <div class="download-box" id="downloadBox">
+    <p>✅ Success! Click below to access your free guide:</p>
+    <a href="https://your-ebook-link.com" target="_blank">Download Now</a>
+  </div></div><script>
+  const form = document.getElementById('leadForm');
+  const box = document.getElementById('downloadBox');
 
-    h1 {
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 15px;
-      animation: fadeIn 1.5s ease;
-    }
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    await fetch("https://formspree.io/f/yourformid", {
+      method: "POST",
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    form.style.display = "none";
+    box.style.display = "block";
+  });
+</script></body>
+</html>    }
 
     @keyframes fadeIn {
       from { opacity: 0; }
