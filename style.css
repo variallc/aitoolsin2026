@@ -117,3 +117,61 @@ button:hover {
   margin-top: 5px;
   color: #ccc;
 }
+
+/* VIDEO SECTION */
+.video-section {
+  margin: 20px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.video-section iframe {
+  width: 100%;
+  height: 200px;
+}
+
+/* BACKGROUND SVG SYSTEM */
+.bg-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-svg svg {
+  position: absolute;
+  opacity: 0.12;
+  filter: blur(70px);
+  transform: rotate(20deg);
+  animation: float 15s infinite ease-in-out;
+}
+
+.svg1 {
+  top: 10%;
+  left: 5%;
+  width: 300px;
+}
+
+.svg2 {
+  top: 50%;
+  right: 10%;
+  width: 250px;
+  animation-delay: 3s;
+}
+
+.svg3 {
+  bottom: 10%;
+  left: 30%;
+  width: 280px;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(20deg); }
+  50% { transform: translateY(-40px) rotate(25deg); }
+  100% { transform: translateY(0px) rotate(20deg); }
+  }
